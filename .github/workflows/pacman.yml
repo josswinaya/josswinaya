@@ -17,16 +17,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate pacman graph
-        uses: AbhishekGautam2000/pacman-contribution-graph@master
+      - name: Generate Pacman Graph
+        uses: alien-x1/pacman-contribution-graph@main
         with:
-          github_user_name: josswinaya
-          output_branch: pacman-output
+          github_user_name: ${{ github.repository_owner }}
 
       - name: Push Pacman SVG to pacman-output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: pacman-output
-          build_dir: pacman-output
+          build_dir: pacman
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
