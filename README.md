@@ -1,4 +1,4 @@
-## Hello I'm Joshua Winner Naya 👋
+## Hello I'm Joshua Winner Naya 
 
 ![Joshua Winner Naya](img/BG-Profile-LinkedIn-Joshua.jpg)
 
