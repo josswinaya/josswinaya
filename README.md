@@ -3,7 +3,7 @@
 ![Joshua Winner Naya](img/BG-Profile-LinkedIn-Joshua.jpg)
 
 ###  About 
-#### I’m a student at Brawijaya University, Technology Information and currently learning Software and Data Science & Machine Learning
+#### I’m an Information Technology student at Universitas Brawijaya, currently focusing on Software Engineering, Data Science, and Machine Learning.
 
 ###  Web Tech Stack & Tools
 [![Tech Stack](https://skillicons.dev/icons?i=laravel,ts,nextjs,react,mysql,postgres,git,postman,vercel&perline=5)](https://skillicons.dev)
