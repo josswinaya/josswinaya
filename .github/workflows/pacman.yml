@@ -2,7 +2,6 @@ name: Generate Pacman Contribution Graph
 
 on:
   schedule:
-    # Berjalan otomatis setiap 12 jam
     - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
@@ -14,18 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: Platane/snk/svg-only@v3
+      - name: Generate pacman graph
+        uses: AbhishekGautam2000/pacman-contribution-graph@master
         with:
-          github_user_name: ${{ https://github.com/josswinaya/josswinaya }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-
-      # Alternatif jika Anda menggunakan action pacman khusus (misal: pacman-contribution-graph):
-      - uses: AbhishekGautam2000/pacman-contribution-graph@master
-        with:
-          github_user_name: ${{ https://github.com/josswinaya/josswinaya }}
+          github_user_name: josswinaya
           output_branch: pacman-output
+
+      - name: Push Pacman SVG to pacman-output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: pacman-output
+          build_dir: pacman-output
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
