@@ -1,6 +1,6 @@
 ## Hello I'm Joshua Winner Naya 👋
 
-![Joshua Winner Naya](img/BG Profile LinkedIn Joshua.jpg)
+![Joshua Winner Naya](img/BG-Profile-LinkedIn-Joshua.jpg)
 
 <!--
 **josswinaya/josswinaya** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
