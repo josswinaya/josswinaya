@@ -1,7 +1,31 @@
-<picture data-importer="pacman">
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/josswinaya/josswinaya/pacman-output/pacman-contribution-graph-dark.svg?game=pacman">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/josswinaya/josswinaya/pacman-output/pacman-contribution-graph.svg?game=pacman">
-  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/josswinaya/josswinaya/pacman-output/pacman-contribution-graph.svg?game=pacman">
-</picture>
+name: Generate Pacman Contribution Graph
 
-###
+on:
+  schedule:
+    # Berjalan otomatis setiap 12 jam
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ https://github.com/josswinaya/josswinaya }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      # Alternatif jika Anda menggunakan action pacman khusus (misal: pacman-contribution-graph):
+      - uses: AbhishekGautam2000/pacman-contribution-graph@master
+        with:
+          github_user_name: ${{ https://github.com/josswinaya/josswinaya }}
+          output_branch: pacman-output
